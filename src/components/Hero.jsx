@@ -25,7 +25,7 @@ export default function Hero() {
                 }}
             />
 
-            <div className="w-full max-w-7xl mx-auto px-6 md:px-12">
+            <div className="w-full max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 relative z-10 w-full h-full">
                     {/* Left Content Area */}
                     <div className="flex flex-col items-start justify-center">
