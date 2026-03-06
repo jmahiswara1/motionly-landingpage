@@ -6,14 +6,18 @@ export default function Hero() {
     const tags = ["Motion Graphics", "2D Animation", "3D Animation", "Explainer Videos", "Lottie Animations", "UI/UX Motion"];
 
     return (
-        <section className="relative h-screen min-h-[700px] flex flex-col justify-center overflow-hidden pt-20 w-full">
+        <section className="relative h-screen min-h-[700px] flex flex-col justify-center top-0 overflow-hidden pt-20 w-full">
 
             {/* Background Gradient Image */}
             <motion.img
                 src={blobImg}
                 alt="Gradient Background"
                 className="absolute inset-y-0 right-0 w-full md:w-[70%] lg:w-[60%] h-full object-cover object-right -z-10 pointer-events-none"
-                style={{ mixBlendMode: 'multiply' }}
+                style={{
+                    mixBlendMode: 'multiply',
+                    maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
+                }}
                 transition={{
                     duration: 10,
                     repeat: Infinity,

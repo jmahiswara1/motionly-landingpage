@@ -27,7 +27,11 @@
   }
 }
 
-html {
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  /* Ini yang mematikan fungsi scroll */
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
 }

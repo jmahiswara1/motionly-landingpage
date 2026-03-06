@@ -1,40 +1,34 @@
 import { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
-    const { scrollY } = useScroll();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    // Background opacity memudar saat scroll
-    const bgOpacity = useTransform(scrollY, [0, 100], [0, 0.8]);
-    // Blur membesar saat scroll
-    const blurValue = useTransform(scrollY, [0, 100], [0, 8]);
-
-    // Mencegah scroll saat menu terbuka
+    // Mencegah scroll saat menu terbuka 
+    // (Catatan: Jika body utama sudah overflow-hidden, efek ini mungkin redundan, 
+    // tapi tetap aman dibiarkan untuk berjaga-jaga jika komponen ini dipakai di halaman lain)
     useEffect(() => {
         if (isMenuOpen) {
             document.body.style.overflow = 'hidden';
         } else {
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto'; // Pastikan sesuai dengan kebutuhan halaman statis Anda
         }
     }, [isMenuOpen]);
 
     return (
         <>
             <motion.nav
-                className="fixed top-0 left-0 right-0 z-50 px-6 py-4 md:px-12 md:py-6 transition-colors duration-300"
-            // Hapus properti style dari sini agar mask tidak mengenai konten
+                className="fixed top-0 left-0 right-0 z-50 px-6 py-4 md:px-12 md:py-6"
             >
-                {/* Elemen Background Khusus 
-                  Diposisikan absolut, z-index negatif agar di belakang konten, 
-                  dan diberi efek masking agar blur/warna memudar ke bawah 
+                {/* Elemen Background Statis dengan Blur Permanen.
+                  Nilai blur disetel langsung (misal 8px) karena layar tidak di-scroll.
                 */}
-                <motion.div
+                <div
                     className="absolute inset-0 -z-10 pointer-events-none"
                     style={{
-                        backdropFilter: useTransform(blurValue, (v) => `blur(${v}px)`),
-                        WebkitBackdropFilter: useTransform(blurValue, (v) => `blur(${v}px)`),
-                        // Masking membuat area atas pekat (black) dan area bawah tembus pandang (transparent)
+                        backdropFilter: 'blur(8px)',
+                        WebkitBackdropFilter: 'blur(8px)',
+                        // Efek fade-out transparan ke bawah tetap dipertahankan
                         maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
                         WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
                     }}
@@ -79,46 +73,10 @@ export default function Navbar() {
                         className="fixed inset-0 z-40 bg-[#FFFFFF] flex flex-col justify-center items-center"
                     >
                         <div className="flex flex-col items-center gap-8 text-3xl md:text-5xl font-bold">
-                            <motion.a
-                                href="/"
-                                className="hover:text-gray-500 transition-colors"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3, duration: 0.5 }}
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Home
-                            </motion.a>
-                            <motion.a
-                                href="#pricing"
-                                className="hover:text-gray-500 transition-colors"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.35, duration: 0.5 }}
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Pricing
-                            </motion.a>
-                            <motion.a
-                                href="#works"
-                                className="hover:text-gray-500 transition-colors"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.4, duration: 0.5 }}
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Works
-                            </motion.a>
-                            <motion.a
-                                href="#faq"
-                                className="hover:text-gray-500 transition-colors"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.45, duration: 0.5 }}
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                FAQ
-                            </motion.a>
+                            <motion.a href="/" className="hover:text-gray-500 transition-colors" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }} onClick={() => setIsMenuOpen(false)}>Home</motion.a>
+                            <motion.a href="#pricing" className="hover:text-gray-500 transition-colors" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35, duration: 0.5 }} onClick={() => setIsMenuOpen(false)}>Pricing</motion.a>
+                            <motion.a href="#works" className="hover:text-gray-500 transition-colors" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.5 }} onClick={() => setIsMenuOpen(false)}>Works</motion.a>
+                            <motion.a href="#faq" className="hover:text-gray-500 transition-colors" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45, duration: 0.5 }} onClick={() => setIsMenuOpen(false)}>FAQ</motion.a>
                         </div>
                     </motion.div>
                 )}
