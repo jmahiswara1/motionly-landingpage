@@ -3,11 +3,22 @@
 @theme {
   --font-sans: "Inter", sans-serif;
   --font-serif: "Playfair Display", serif;
-  
+
   --color-brand-bg: #F5F5F7;
   --color-brand-dark: #0A0A0F;
   --color-brand-text: #1A1A1A;
   --color-brand-muted: #888888;
+}
+
+@layer base {
+  body {
+    background-color: #dfdfdf;
+    color: #1A1A1A;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    overscroll-behavior-y: none;
+    /* Disable scroll bounce */
+  }
 }
 
 @layer utilities {
@@ -18,8 +29,52 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
-body {
-  overflow-x: hidden;
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+  display: flex;
+  flex-shrink: 0;
+  min-width: 100%;
+}
+
+/* Gradient Blob Animation */
+@keyframes blob-spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  33% {
+    transform: rotate(120deg) scale(1.1);
+  }
+
+  66% {
+    transform: rotate(240deg) scale(0.9);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.blob-gradient {
+  background: radial-gradient(circle at 50% 50%,
+      rgba(49, 0, 255, 0.8) 0%,
+      rgba(0, 150, 255, 0.6) 40%,
+      rgba(200, 0, 255, 0.4) 60%,
+      rgba(245, 245, 247, 0) 80%);
+  filter: blur(80px);
+  animation: blob-spin 20s infinite linear;
 }
