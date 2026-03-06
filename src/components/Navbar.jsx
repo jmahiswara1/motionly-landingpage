@@ -37,7 +37,7 @@ export default function Navbar() {
                 <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
                     <div className="flex items-center">
                         <a href="/" className="text-2xl font-serif italic font-bold tracking-tight relative z-50">
-                            motionly<sup className="text-xs absolute -top-1 -right-3">®</sup>
+                            motionly®
                         </a>
                     </div>
 

@@ -31,7 +31,12 @@ export default function Hero() {
                     <div className="flex flex-col items-start justify-center">
 
                         {/* Marquee Tags */}
-                        <div className="flex overflow-hidden relative w-full max-w-[400px] mb-8 mask-linear-fade">
+                        <motion.div
+                            className="flex overflow-hidden relative w-full max-w-[400px] mb-8 mask-linear-fade"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 2.2, ease: [0.22, 1, 0.36, 1] }}
+                        >
                             {/* Gradient fade masks for edges */}
                             <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#F5F5F7] to-transparent z-10" />
                             <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#F5F5F7] to-transparent z-10" />
@@ -50,13 +55,13 @@ export default function Hero() {
                                     </span>
                                 ))}
                             </div>
-                        </div>
+                        </motion.div>
 
                         <motion.h1
                             className="text-5xl md:text-7xl lg:text-[80px] font-bold tracking-tight text-[#1A1A1A] leading-[1.1] mb-6 text-balance"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                            transition={{ duration: 0.8, delay: 2.3, ease: [0.22, 1, 0.36, 1] }}
                         >
                             World-class <span className="font-serif italic font-medium pr-2">motion</span> <br />
                             whenever <br />
@@ -67,7 +72,7 @@ export default function Hero() {
                             className="text-lg md:text-xl text-[#888888] max-w-md mb-10 leading-relaxed"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                            transition={{ duration: 0.8, delay: 2.4, ease: [0.22, 1, 0.36, 1] }}
                         >
                             A monthly motion graphics subscription for startups, creators, and brands who need stunning animations without the wait.
                         </motion.p>
@@ -76,7 +81,7 @@ export default function Hero() {
                             className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                            transition={{ duration: 0.8, delay: 2.5, ease: [0.22, 1, 0.36, 1] }}
                         >
                             <motion.a
                                 href="#pricing"
@@ -92,19 +97,6 @@ export default function Hero() {
                                     See Pricing <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
                                 </span>
                             </motion.a>
-
-                            {/* <motion.a
-                                href="#contact"
-                                className="bg-white text-[#1A1A1A] px-6 py-4 rounded-full font-medium flex items-center justify-center gap-3 w-full sm:w-auto shadow-sm border border-black/5 hover:bg-gray-50 transition-colors"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                            >
-                                <div className="flex -space-x-2">
-                                    <div className="w-6 h-6 rounded-full bg-gray-200 border-2 border-white overflow-hidden flex items-center justify-center">
-                                        <span className="text-[10px]">👩‍🎨</span>
-                                    </div>
-                                </div>
-                            </motion.a> */}
                         </motion.div>
                     </div>
 
