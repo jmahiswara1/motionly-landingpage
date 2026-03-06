@@ -1,29 +1,56 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import Lenis from 'lenis';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import LogoTicker from './components/LogoTicker';
 import Preloader from './components/Preloader';
+import HowItWorks from './components/HowItWorks';
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        // Initialize Preloader timer
         const timer = setTimeout(() => {
             setIsLoading(false);
         }, 2000);
 
-        return () => clearTimeout(timer);
+        // Initialize Lenis smooth scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        return () => {
+            clearTimeout(timer);
+            lenis.destroy();
+        };
     }, []);
 
     return (
-        <div className="min-h-screen relative selection:bg-black selection:text-white">
+        <div className="min-h-screen relative selection:bg-black selection:text-white pb-20">
             <AnimatePresence mode="wait">
                 {isLoading && <Preloader />}
             </AnimatePresence>
             <Navbar />
             <Hero />
             <LogoTicker />
+            <HowItWorks />
         </div>
     )
 }
