@@ -9,6 +9,8 @@ import HowItWorks from './components/HowItWorks';
 import Clients from './components/Clients';
 import Portfolio from './components/Portfolio';
 import Features from "./components/Features";
+import Pricing from './components/Pricing';
+import Testimonials from './components/Testimonials';
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
@@ -57,6 +59,8 @@ function App() {
             <Clients />
             <Portfolio />
             <Features />
+            <Pricing />
+            <Testimonials />
         </div>
     )
 }
