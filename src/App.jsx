@@ -11,6 +11,8 @@ import Portfolio from './components/Portfolio';
 import Features from "./components/Features";
 import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
+import FAQ from './components/FAQ';
+import Footer from './components/Footer';
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
@@ -61,6 +63,8 @@ function App() {
             <Features />
             <Pricing />
             <Testimonials />
+            <FAQ />
+            <Footer />
         </div>
     )
 }
