@@ -7,6 +7,7 @@ import LogoTicker from './components/LogoTicker';
 import Preloader from './components/Preloader';
 import HowItWorks from './components/HowItWorks';
 import Clients from './components/Clients';
+import Portfolio from './components/Portfolio';
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
@@ -44,7 +45,7 @@ function App() {
     }, []);
 
     return (
-        <div className="min-h-screen relative selection:bg-black selection:text-white pb-20 overflow-x-hidden">
+        <div className="min-h-screen relative selection:bg-black selection:text-white pb-20 overflow-clip">
             <AnimatePresence mode="wait">
                 {isLoading && <Preloader />}
             </AnimatePresence>
@@ -53,6 +54,7 @@ function App() {
             <LogoTicker />
             <HowItWorks />
             <Clients />
+            <Portfolio />
         </div>
     )
 }

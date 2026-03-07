@@ -79,3 +79,26 @@ body {
   filter: blur(80px);
   animation: blob-spin 20s infinite linear;
 }
+
+/* Aurora Animation */
+@keyframes aurora {
+  0% {
+    background-position: 50% 50%, 50% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%, 0% 50%;
+  }
+
+  100% {
+    background-position: 50% 50%, 50% 50%;
+  }
+}
+
+.aurora-bg {
+  background-image:
+    radial-gradient(ellipse at 100% 0%, rgba(98, 0, 255, 0.5) 0%, transparent 60%),
+    radial-gradient(ellipse at 0% 100%, rgba(0, 204, 255, 0.5) 0%, transparent 60%);
+  background-size: 200% 200%, 200% 200%;
+  animation: aurora 10s ease infinite;
+}
