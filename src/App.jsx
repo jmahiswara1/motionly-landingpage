@@ -50,7 +50,7 @@ function App() {
     }, []);
 
     return (
-        <div className="min-h-screen relative selection:bg-black selection:text-white pb-20 overflow-clip">
+        <div className="min-h-screen relative selection:bg-black selection:text-white overflow-clip">
             <AnimatePresence mode="wait">
                 {isLoading && <Preloader />}
             </AnimatePresence>

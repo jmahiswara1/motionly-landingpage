@@ -59,7 +59,7 @@ export default function Footer() {
                     transition={{ delay: 0.3 }}
                     className="px-8 py-4 bg-white text-black text-lg font-semibold rounded-full hover:scale-105 hover:bg-gray-100 transition-all active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.3)]"
                 >
-                    See Pricing
+                    Get Started
                 </motion.button>
             </div>
 
@@ -68,7 +68,6 @@ export default function Footer() {
                 <p>© {new Date().getFullYear()} motionly. All rights reserved.</p>
 
                 <div className="flex items-center gap-6">
-                    <a href="#" className="hover:text-white transition-colors tracking-wide">Thank You</a>
                     <a href="#" className="hover:text-white transition-colors tracking-wide">Privacy Policy</a>
                     <a href="#" className="hover:text-white transition-colors tracking-wide">Terms</a>
                 </div>
