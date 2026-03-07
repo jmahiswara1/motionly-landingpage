@@ -8,6 +8,7 @@ import Preloader from './components/Preloader';
 import HowItWorks from './components/HowItWorks';
 import Clients from './components/Clients';
 import Portfolio from './components/Portfolio';
+import Features from "./components/Features";
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
@@ -55,6 +56,7 @@ function App() {
             <HowItWorks />
             <Clients />
             <Portfolio />
+            <Features />
         </div>
     )
 }
