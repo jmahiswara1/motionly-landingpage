@@ -39,15 +39,15 @@ export default function Clients() {
             id="clients"
             ref={containerRef}
             // overflow-hidden dikembalikan agar layar tidak bisa geser kiri-kanan
-            className="relative w-full overflow-hidden bg-[#F8F9FA] py-32 md:py-48 min-h-[900px] flex flex-col items-center justify-center"
+            className="relative w-full overflow-hidden bg-[#F8F9FA] pt-32 md:pt-48 pb-10 min-h-[600px] md:min-h-[700px] flex flex-col items-center justify-center"
         >
             {/* 1. WRAPPER MASKING: Kotak ini sengaja dibuat lebih besar (1100px) untuk menampung tonjolan avatar */}
             <div
                 style={{
-                    maskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)'
+                    maskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)'
                 }}
-                className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[1100px] md:w-[1200px] md:h-[1200px] pointer-events-none z-0 flex items-center justify-center"
+                className="absolute top-[75%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[1100px] md:w-[1200px] md:h-[1200px] pointer-events-none z-0 flex items-center justify-center"
             >
                 {/* 2. LINGKARAN PUTAR: Ukuran aslinya (900px), diletakkan di tengah wrapper masking */}
                 <motion.div
@@ -56,7 +56,7 @@ export default function Clients() {
                 >
                     {avatars.map((src, index) => {
                         const totalAvatars = avatars.length;
-                        const angleRange = 180; // Total bentangan 180 derajat (setengah lingkaran sempurna)
+                        const angleRange = 240; // Total bentangan 180 derajat (setengah lingkaran sempurna)
                         const startAngle = -(angleRange / 2);
                         const angleDeg = startAngle + (index * (angleRange / (totalAvatars - 1)));
 

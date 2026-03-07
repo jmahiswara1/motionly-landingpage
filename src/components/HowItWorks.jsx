@@ -182,7 +182,7 @@ export default function HowItWorks() {
                                     transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.1 }}
                                     className="absolute bottom-6 w-[140px] h-[90px] bg-gradient-to-br from-teal-400 to-teal-200 rounded-lg shadow-lg border-[3px] border-white z-20 flex items-center justify-center"
                                 >
-                                    <span className="text-white font-bold text-2xl tracking-tighter">AUG</span>
+                                    <span className="text-white font-bold text-2xl tracking-tighter">M</span>
                                 </motion.div>
 
                                 {/* Front folder flap (Animated to open) */}
